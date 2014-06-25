@@ -17,7 +17,7 @@
 static animation_t walkAnimation =
 {	0,	/* .index			(int) - this is the index of the first animation frame. indicies start at 0 and go left to right, top to bottom by tileWidth on the spriteSheet		*/
 	0,	/* .frame			(int) - this is the current frame. It's an internal variable and should always be set to 0 at init													*/
-	2,	/* .totalframes		(int) - the animation length in frames																												*/
+	14,	/* .totalframes		(int) - the animation length in frames																												*/
 	1,	/* .width			(int) - the width of each animation frame in tiles																									*/
 	1,	/* .height			(int) - the height of each animation frame in tiles																									*/
 	75,	/* .frameduration	(unsigned int) - how many milliseconds each frame should be on screen. Less = faster																*/

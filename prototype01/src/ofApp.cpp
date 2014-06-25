@@ -19,8 +19,9 @@ void ofApp::setup(){
     ofSetVerticalSync(true);
     ofBackground(255);
     
-    spriteRenderer = new ofxSpriteSheetRenderer(1, 10000, 0, 300);
-    spriteRenderer->loadTexture("image/spritFly.png", 600, GL_NEAREST);
+    int size = int(3494/14);
+    spriteRenderer = new ofxSpriteSheetRenderer(1, 10000, 0, size);
+    spriteRenderer->loadTexture("image/spritFly4.png", 3494, GL_NEAREST);
   
     ofEnableAlphaBlending();
 
@@ -78,13 +79,13 @@ void ofApp::draw(){
 		for(int i=sprites.size()-1;i>=0;i--)
 		{
 			
-			if(points[sprites[i]->num].pos.z<-1000)
+			if(points[sprites[i]->num].pos.z<-500)
 			{
 				delete sprites[i];
 				sprites.erase(sprites.begin()+i);
 			}
 			else{
-				spriteRenderer->addCenterRotatedTile(&sprites[i]->animation, points[sprites[i]->num].pos.x, points[sprites[i]->num].pos.y, -1, F_NONE, ofMap(points[sprites[i]->num].pos.z, 0, -1000, 1, 0), 0 ,NULL, 255, 255, 255, ofMap(points[sprites[i]->num].pos.z, 0, -1000, 255, 0));
+				spriteRenderer->addCenterRotatedTile(&sprites[i]->animation, points[sprites[i]->num].pos.x, points[sprites[i]->num].pos.y, -1, F_NONE, ofMap(points[sprites[i]->num].pos.z, 0, -500, 1, 0), 0 ,NULL, 255, 255, 255, ofMap(points[sprites[i]->num].pos.z, 0, -500, 255, 0));
                 
             }
 		}
@@ -113,6 +114,7 @@ void ofApp::keyReleased(int key){
         basicSprite * newSprite = new basicSprite();
 		newSprite->pos.set(0,0,0);
 		newSprite->animation = walkAnimation;
+
         newSprite->num = (points.size()-1);
 		sprites.push_back(newSprite);
     }
